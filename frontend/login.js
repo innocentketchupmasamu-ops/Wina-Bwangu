@@ -22,6 +22,9 @@ loginForm.addEventListener("submit", async (event) => {
 
     localStorage.setItem("winaBwanguSession", result.token);
     localStorage.setItem("winaBwanguUser", result.username);
+    localStorage.setItem("winaBwanguFullName", result.full_name || result.username);
+    localStorage.setItem("winaBwanguRole", result.role || "user");
+
     window.location.href = "index.html";
   } catch (error) {
     message.textContent = error.message;
