@@ -1,299 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Assignment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wina Bwangu - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="menu-button" id="menu-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                fill="currentColor"><!--!Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                <path
-                    d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" />
-            </svg>
-
-        </div>
-
-        <div class="logo">Wina Bwangu</div>
-    </nav>
-
-
-    <div class="side-menu" id="side-menu">
-
-        <a href="index.html" class="menu-item active">Dashboard</a>
-
-        <div class="dropdown">
-            <span class="menu-item" id="dropdown-button">Mobile Booths
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M10.0719 8.02397L5.7146 3.66666L6.33332 3.04794L11 7.71461V8.33333L6.33332 13L5.7146 12.3813L10.0719 8.02397Z"
-                        fill="#C5C5C5" />
-                </svg>
-            </span>
-
-            <div class="dropdown-menu" id="dropdown-menu">
-
-                <span class="nested-button">
-                    <p class="booth">Wina 1</p>
-                    <p class="location">Lusaka CPD</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-
-                <span class="nested-button">
-                    <p class="booth">Wina 2</p>
-                    <p class="location">Libala</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 3</p>
-                    <p class="location">Kabwata</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 4</p>
-                    <p class="location">Mandevu</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 5</p>
-                    <p class="location">Woodlands</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 6</p>
-                    <p class="location">Matero East</p>
-                </span>
-                <ul class="nested-menu" id="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                </ul>
-            </div>
-        </div>
-
-        <a href="transactions.html" class="menu-item">Transactions</a>
-
-        <a href="document.html" class="menu-item">Documentation</a>
-
+  <nav class="navbar">
+    <button class="menu-button" id="menu-button" aria-label="Open menu">☰</button>
+    <div class="logo">Wina Bwangu</div>
+    <div class="nav-user">
+      <span id="current-user"></span>
+      <button class="logout-button" id="logout-button">Log out</button>
     </div>
+  </nav>
 
-    <!--modal to show revenue per kwacha-->
-    <div class="modal-overlay" id="service-modal">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
+  <aside class="side-menu" id="side-menu">
+    <a href="index.html" class="menu-item active">Dashboard</a>
+    <a href="transactions.html" class="menu-item">Transactions</a>
+    <a href="document.html" class="menu-item">Documentation</a>
+  </aside>
 
-            <h3 id="modal-service-name"></h3>
+  <main class="page">
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Management dashboard</p>
+        <h1>Wina Bwangu Overview</h1>
+        <p>Live figures calculated from the February 2021 transaction dataset.</p>
+      </div>
+    </section>
 
-            <div class="modal-body">
-                <p class="modal-revenue" id="modal-revenue"></p>
-                <p id="modal-description"></p>
-            </div>
+    <section class="summary-cards">
+      <article class="summary-card"><span>Total transactions</span><strong id="total-transactions">—</strong></article>
+      <article class="summary-card"><span>Total revenue</span><strong id="total-revenue">—</strong></article>
+      <article class="summary-card"><span>Total capital</span><strong id="total-capital">—</strong></article>
+      <article class="summary-card"><span>Tax rate</span><strong id="tax-rate">16%</strong></article>
+    </section>
 
+    <section class="dashboard-grid">
+      <article class="panel">
+        <div class="panel-heading"><h2>Service performance</h2><span>Monthly limit</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Service</th><th>Used</th><th>Remaining</th><th>Utilisation</th></tr></thead>
+            <tbody id="service-performance-body"></tbody>
+          </table>
         </div>
-    </div>
+      </article>
 
-    <!--Toast message container-->
-    <div class="toast-container">
-        <div class="toast" id="toast"></div>
-    </div>
-
-
-    <!--Dashboard-->
-    <div class="container">
-        <div class="display services" style="grid-area: b1;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Cumulative Totals</th>
-                        <th>Remaining Credit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr service-id="airtel-money">
-                        <td>Airtel Money</td>
-                        <td class="cell-total"></td>
-                        <td class="cell-credit"></td>
-                    </tr>
-                    <tr service-id="mtn-money">
-                        <td>MTN Money</td>
-                        <td class="cell-total"></td>
-                        <td class="cell-credit"></td>
-                    </tr>
-                    <tr service-id="zamtel-money">
-                        <td>Zamtel Money</td>
-                        <td class="cell-total"></td>
-                        <td class="cell-credit"></td>
-                    </tr>
-                    <tr service-id="zanaco">
-                        <td>Zanaco</td>
-                        <td class="cell-total"></td>
-                        <td class="cell-credit"></td>
-                    </tr>
-                    <tr service-id="fnb">
-                        <td>FNB</td>
-                        <td class="cell-total"></td>
-                        <td class="cell-credit"></td>
-                    </tr>
-                </tbody>
-            </table>
+      <article class="panel">
+        <div class="panel-heading"><h2>Booth revenue</h2><span>By booth</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Booth</th><th>Transactions</th><th>Revenue</th></tr></thead>
+            <tbody id="booth-performance-body"></tbody>
+          </table>
         </div>
+      </article>
 
-
-        <div class="display revenue" style="grid-area: b2;">
-            <table id="booth-summary-table">
-                <thead>
-                    <tr>
-                        <th>Mobile Booth</th>
-                        <th>Cumulative Revenue</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr booth-id="wina1">
-                        <td>Wina 1</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                    <tr booth-id="wina2">
-                        <td>Wina 2</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                    <tr booth-id="wina3">
-                        <td>Wina 3</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                    <tr booth-id="wina4">
-                        <td>Wina 4</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                    <tr booth-id="wina5">
-                        <td>Wina 5</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                    <tr booth-id="wina6">
-                        <td>Wina 6</td>
-                        <td class="cell-revenue"></td>
-
-                    </tr>
-                </tbody>
-            </table>
+      <article class="panel">
+        <div class="panel-heading"><h2>Service frequency</h2><span>Transactions</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Booth</th><th>Service</th><th>Count</th></tr></thead>
+            <tbody id="frequency-body"></tbody>
+          </table>
         </div>
+      </article>
 
+      <article class="panel chart-panel">
+        <div class="panel-heading"><h2>Revenue vs capital</h2></div>
+        <canvas id="revenue-chart"></canvas>
+        <div id="chart-legend" class="chart-legend"></div>
+      </article>
+    </section>
 
-        <div class="display frequency" style="grid-area: b3;">
-            <table id="frequency-table">
-                <thead>
-                    <tr>
-                        <th>Frequency</th>
-                        <td>Wina 1</td>
-                        <td>Wina 2</td>
-                        <td>Wina 3</td>
-                        <td>Wina 4</td>
-                        <td>Wina 5</td>
-                        <td>Wina 6</td>
+    <section class="panel">
+      <div class="panel-heading"><h2>Monthly limit status</h2></div>
+      <div id="limit-bars" class="limit-bars"></div>
+    </section>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr service-id="airtel-money">
-                        <td>Airtel Money</td>
-                        <td booth-id="wina1"></td>
-                        <td booth-id="wina2"></td>
-                        <td booth-id="wina3"></td>
-                        <td booth-id="wina4"></td>
-                        <td booth-id="wina5"></td>
-                        <td booth-id="wina6"></td>
-                    </tr>
-                    <tr service-id="mtn-money">
-                        <td>MTN Money</td>
-                        <td booth-id="wina1"></td>
-                        <td booth-id="wina2"></td>
-                        <td booth-id="wina3"></td>
-                        <td booth-id="wina4"></td>
-                        <td booth-id="wina5"></td>
-                        <td booth-id="wina6"></td>
-                    </tr>
-                    <tr service-id="zamtel-money">
-                        <td>Zamtel Money</td>
-                        <td booth-id="wina1"></td>
-                        <td booth-id="wina2"></td>
-                        <td booth-id="wina3"></td>
-                        <td booth-id="wina4"></td>
-                        <td booth-id="wina5"></td>
-                        <td booth-id="wina6"></td>
-                    </tr>
-                    <tr service-id="zanaco">
-                        <td>Zanaco</td>
-                        <td booth-id="wina1"></td>
-                        <td booth-id="wina2"></td>
-                        <td booth-id="wina3"></td>
-                        <td booth-id="wina4"></td>
-                        <td booth-id="wina5"></td>
-                        <td booth-id="wina6"></td>
-                    </tr>
-                    <tr service-id="fnb">
-                        <td>FNB</td>
-                        <td booth-id="wina1"></td>
-                        <td booth-id="wina2"></td>
-                        <td booth-id="wina3"></td>
-                        <td booth-id="wina4"></td>
-                        <td booth-id="wina5"></td>
-                        <td booth-id="wina6"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <p id="dashboard-message" class="form-message"></p>
+  </main>
 
+  <div class="toast" id="toast"></div>
 
-        <div class="pie-chart-container" style="grid-area: b4;">
-            <canvas class="pie-chart" id="pie-chart"></canvas>
-            <div id="pie-chart-legend"></div>
-        </div>
-    </div>
-
-
-    <script src="script.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>
