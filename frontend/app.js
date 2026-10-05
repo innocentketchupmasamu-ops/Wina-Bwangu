@@ -35,6 +35,7 @@ async function loadDashboard() {
     document.getElementById("total-transactions").textContent = Number(summary.total_transactions).toLocaleString();
     document.getElementById("total-revenue").textContent = money(summary.total_revenue);
     document.getElementById("total-capital").textContent = money(summary.total_capital);
+    document.getElementById("tax-rate").textContent = (Number(summary.tax_rate) * 100).toFixed(2) + "%";
 
     document.getElementById("service-performance-body").innerHTML = services.map(item => `
       <tr>
