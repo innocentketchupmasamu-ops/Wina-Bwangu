@@ -68,6 +68,23 @@ function updateEstimate() {
   revenueDisplay.textContent = rate && amount > 0 ? money(amount * rate) : "—";
 }
 
+async function loadTaxPerformance() {
+  const servicesPerformance = await apiRequest("/dashboard/service-performance");
+  const taxValues = servicesPerformance.map(item => ({
+    name: item.service_name,
+    tax: Number(item.used) * 0.16
+  }));
+  const highest = Math.max(...taxValues.map(item => item.tax), 0) || 1;
+  document.getElementById("tax-performance").innerHTML = taxValues.map(item => {
+    const percent = Math.round((item.tax / highest) * 100);
+    return `
+      <div class="limit-row">
+        <div class="limit-label"><strong>${item.name}</strong><span>${money(item.tax)} estimated tax</span></div>
+        <div class="progress large"><span style="width:${percent}%"></span></div>
+      </div>`;
+  }).join("");
+}
+
 async function loadTransactions() {
   const params = new URLSearchParams();
   if (filterBooth.value) params.set("booth_id", filterBooth.value);
@@ -153,6 +170,7 @@ form.addEventListener("submit", async (event) => {
     rateDisplay.textContent = "—";
     revenueDisplay.textContent = "—";
     await loadTransactions();
+    await loadTaxPerformance();
   } catch (error) {
     showMessage(error.message, true);
   }
