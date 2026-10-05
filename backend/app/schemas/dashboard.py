@@ -21,6 +21,7 @@ class DashboardSummary(BaseModel):
     total_transactions: int
     total_revenue: Decimal
     total_capital: int
+    tax_rate: float
 
 class ServicePerformance(BaseModel):
     service_name: str
