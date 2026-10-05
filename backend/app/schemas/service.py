@@ -1,13 +1,17 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from decimal import Decimal
+
 
 class ServiceBase(BaseModel):
     name: str
-    monthly_limit: int
+    monthly_limit: Decimal
     revenue_per_kwacha: Decimal
+
 
 class ServiceOut(ServiceBase):
     id: int
+    model_config = ConfigDict(from_attributes=True)
+
 
 class BoothServiceOut(BaseModel):
     service_id: int
