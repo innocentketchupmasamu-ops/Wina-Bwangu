@@ -35,5 +35,7 @@ function requireLogin() {
 function logout() {
   localStorage.removeItem("winaBwanguSession");
   localStorage.removeItem("winaBwanguUser");
+  localStorage.removeItem("winaBwanguFullName");
+  localStorage.removeItem("winaBwanguRole");
   window.location.href = "login.html";
 }
