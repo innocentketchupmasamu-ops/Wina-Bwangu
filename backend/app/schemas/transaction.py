@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from decimal import Decimal
 from datetime import datetime
 
@@ -19,3 +19,5 @@ class TransactionOut(BaseModel):
     tax_amount: Decimal | None
     amount_after_tax: Decimal | None
     created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
