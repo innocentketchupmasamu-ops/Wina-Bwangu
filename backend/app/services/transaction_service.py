@@ -1,78 +1,66 @@
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
-from fastapi import HTTPException, status
+from fastapi import HTTPException
 from app.models import Transaction, Booth, Service, booth_services
 from app.core.config import settings
 from app.schemas.transaction import TransactionCreate
 from typing import Tuple
 
-async def validate_transaction(db: AsyncSession, data: TransactionCreate) -> Tuple[Booth, Service, Decimal]:
-    """
-    Validate that the booth and service exist, the service is offered at the booth,
-    and the transaction amount does not exceed the remaining monthly limit.
 
-    Returns: (booth, service, remaining_limit)
-    Raises HTTPException if any validation fails.
-    """
-    # 1. Check booth
+async def validate_transaction(
+    db: AsyncSession, data: TransactionCreate
+) -> Tuple[Booth, Service, Decimal]:
     booth = await db.get(Booth, data.booth_id)
     if not booth:
         raise HTTPException(status_code=404, detail="Booth not found")
 
-    # 2. Check service
     service = await db.get(Service, data.service_id)
     if not service:
         raise HTTPException(status_code=404, detail="Service not found")
 
-    # 3. Check booth-service association
     stmt = select(booth_services).where(
         booth_services.c.booth_id == data.booth_id,
-        booth_services.c.service_id == data.service_id
+        booth_services.c.service_id == data.service_id,
     )
     rel = await db.execute(stmt)
     if not rel.first():
-        raise HTTPException(status_code=400, detail="Service not offered at this booth")
+        raise HTTPException(status_code=400, detail="Service is not offered at this booth")
 
-    # 4. Calculate cumulative used for this service
-    used_stmt = select(func.sum(Transaction.transaction_amount)).where(
+    used_stmt = select(func.coalesce(func.sum(Transaction.transaction_amount), 0)).where(
         Transaction.service_id == data.service_id
     )
-    used_result = await db.execute(used_stmt)
-    used = used_result.scalar() or Decimal(0)
+    used = (await db.execute(used_stmt)).scalar() or Decimal("0")
+    remaining = Decimal(service.monthly_limit) - Decimal(used)
 
-    remaining = Decimal(service.monthly_limit) - used
     if data.transaction_amount > remaining:
         raise HTTPException(
             status_code=400,
-            detail=f"Insufficient limit. Remaining: {remaining}"
+            detail=f"Transaction exceeds the {service.name} monthly limit. Remaining: K{remaining:,.2f}",
         )
 
     return booth, service, remaining
 
 
 async def create_transaction_record(
-    db: AsyncSession,
-    data: TransactionCreate,
-    service: Service
+    db: AsyncSession, data: TransactionCreate, service: Service
 ) -> Transaction:
-    """
-    Generate transaction code, compute revenue/tax, and persist the transaction.
-    Assumes all validations have passed.
-    """
-    # Generate next transaction code
-    result = await db.execute(select(func.max(Transaction.transaction_code)))
+    result = await db.execute(
+        select(func.max(Transaction.transaction_code))
+    )
     max_code = result.scalar()
-    if not max_code:
-        new_code = "WB0000001"
-    else:
-        num = int(max_code[2:]) + 1
-        new_code = f"WB{num:07d}"
+    next_number = int(max_code[2:]) + 1 if max_code else 1
+    new_code = f"WB{next_number:07d}"
 
-    # Compute financial fields
-    revenue = data.transaction_amount * service.revenue_per_kwacha
-    tax = data.transaction_amount * Decimal(settings.TAX_RATE)
-    after_tax = data.transaction_amount + tax
+    revenue = (data.transaction_amount * Decimal(service.revenue_per_kwacha)).quantize(
+        Decimal("0.001"), rounding=ROUND_HALF_UP
+    )
+    tax = (data.transaction_amount * Decimal(str(settings.tax_rate))).quantize(
+        Decimal("0.001"), rounding=ROUND_HALF_UP
+    )
+    after_tax = (data.transaction_amount + tax).quantize(
+        Decimal("0.001"), rounding=ROUND_HALF_UP
+    )
 
     transaction = Transaction(
         transaction_code=new_code,
