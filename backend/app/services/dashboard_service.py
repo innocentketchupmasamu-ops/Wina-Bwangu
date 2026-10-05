@@ -2,6 +2,7 @@ from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from decimal import Decimal
 from app.models import Booth, Service, Transaction
+from app.core.config import settings
 from app.schemas.dashboard import (
     DashboardSummary, ServicePerformance, BoothPerformance,
     ServiceFrequency, LimitStatus, RevenueCapital
@@ -15,7 +16,8 @@ async def get_dashboard_summary(db: AsyncSession) -> DashboardSummary:
     return DashboardSummary(
         total_transactions=total_trans.scalar() or 0,
         total_revenue=total_rev.scalar() or Decimal(0),
-        total_capital=int(total_cap.scalar() or 0)
+        total_capital=int(total_cap.scalar() or 0),
+        tax_rate=settings.tax_rate
     )
 
 async def get_service_performance(db: AsyncSession) -> List[ServicePerformance]:
