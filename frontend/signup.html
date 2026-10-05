@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wina Bwangu - Create Account</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <div class="login-brand">Wina Bwangu</div>
+    <h1>Create account</h1>
+    <p class="login-subtitle">Create a standard Wina Bwangu user account.</p>
+    <form id="signup-form">
+      <label for="full-name">Full name</label>
+      <input id="full-name" type="text" autocomplete="name" required>
+      <label for="username">Username</label>
+      <input id="username" type="text" autocomplete="username" required>
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="email" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="new-password" minlength="6" required>
+      <label for="confirm-password">Confirm password</label>
+      <input id="confirm-password" type="password" autocomplete="new-password" minlength="6" required>
+      <button class="primary-button" type="submit">Create account</button>
+      <p id="signup-message" class="form-message"></p>
+    </form>
+    <p class="login-note">Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+  <script src="api.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>
