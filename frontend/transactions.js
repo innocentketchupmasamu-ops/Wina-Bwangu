@@ -69,10 +69,13 @@ function updateEstimate() {
 }
 
 async function loadTaxPerformance() {
-  const servicesPerformance = await apiRequest("/dashboard/service-performance");
+  const [servicesPerformance, summary] = await Promise.all([
+    apiRequest("/dashboard/service-performance"),
+    apiRequest("/dashboard/summary")
+  ]);
   const taxValues = servicesPerformance.map(item => ({
     name: item.service_name,
-    tax: Number(item.used) * 0.16
+    tax: Number(item.used) * Number(summary.tax_rate)
   }));
   const highest = Math.max(...taxValues.map(item => item.tax), 0) || 1;
   document.getElementById("tax-performance").innerHTML = taxValues.map(item => {
@@ -180,6 +183,7 @@ form.addEventListener("submit", async (event) => {
   try {
     await loadReferenceData();
     await loadTransactions();
+    await loadTaxPerformance();
   } catch (error) {
     showMessage(error.message, true);
   }
