@@ -18,6 +18,6 @@ class TransactionOut(BaseModel):
     revenue: Decimal
     tax_amount: Decimal | None
     amount_after_tax: Decimal | None
-    created_at: datetime
+    created_at: datetime | None
 
     model_config = ConfigDict(from_attributes=True)
