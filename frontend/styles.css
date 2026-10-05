@@ -399,3 +399,394 @@ td {
     padding: 1px;
     width: 150px;
 }
+
+/* Functional application layout */
+body {
+  background: #f4f6fb;
+  color: #202431;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  min-height: 64px;
+  align-items: center;
+  padding: 0 18px;
+  background: #221c2f;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #79a9ff;
+  padding: 0;
+}
+
+.menu-button {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.nav-user {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #ddd;
+}
+
+.logout-button,
+.primary-button,
+.pagination button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.logout-button {
+  background: #fff;
+  color: #221c2f;
+}
+
+.side-menu {
+  background: #251c46;
+  width: 250px;
+  padding: 16px;
+  top: 64px;
+  height: calc(100dvh - 64px);
+}
+
+.menu-item {
+  border-radius: 8px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.page-heading {
+  margin-bottom: 22px;
+}
+
+.page-heading h1 {
+  font-size: 2rem;
+  margin: 6px 0;
+}
+
+.page-heading p {
+  color: #667085;
+}
+
+.eyebrow {
+  color: #6c6591 !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.summary-card,
+.panel {
+  background: #fff;
+  border: 1px solid #e6e8ef;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(20, 25, 40, .05);
+}
+
+.summary-card {
+  padding: 20px;
+}
+
+.summary-card span {
+  color: #667085;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.summary-card strong {
+  font-size: 1.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.panel {
+  padding: 20px;
+  min-width: 0;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.panel-heading h2 {
+  font-size: 1.1rem;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.panel table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+}
+
+.panel th,
+.panel td {
+  border: 0;
+  border-bottom: 1px solid #eef0f4;
+  padding: 11px 8px;
+  width: auto;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.panel th {
+  color: #667085;
+  font-size: .82rem;
+}
+
+.progress {
+  width: 110px;
+  height: 8px;
+  border-radius: 99px;
+  background: #e9ebf2;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: #6c6591;
+  border-radius: inherit;
+}
+
+.progress.large {
+  width: 100%;
+  height: 12px;
+  margin: 7px 0 0;
+}
+
+.limit-bars {
+  display: grid;
+  gap: 16px;
+}
+
+.limit-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-legend {
+  display: grid;
+  gap: 7px;
+  width: 100%;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.transaction-form-panel {
+  margin-bottom: 18px;
+}
+
+.transaction-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.transaction-form label,
+.login-card label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.transaction-form input,
+.transaction-form select,
+.login-card input,
+.filters select {
+  width: 100%;
+  border: 1px solid #d6dae3;
+  border-radius: 8px;
+  padding: 11px 12px;
+  background: #fff;
+}
+
+.transaction-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 15px;
+  padding: 11px;
+  border-radius: 8px;
+  background: #f7f7fa;
+}
+
+.primary-button {
+  background: #360f71;
+  color: #fff;
+  font-weight: 700;
+}
+
+.form-message {
+  min-height: 20px;
+  color: #667085;
+}
+
+.form-message.error {
+  color: #b42318;
+}
+
+.form-message.success {
+  color: #027a48;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.pagination button {
+  background: #221c2f;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #221c2f;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transform: translateY(120px);
+  transition: transform .2s ease;
+  z-index: 50;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+/* Login */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #221c2f, #360f71);
+}
+
+.login-card {
+  width: min(430px, 100%);
+  background: #fff;
+  border-radius: 18px;
+  padding: 34px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+
+.login-brand {
+  color: #360f71;
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 30px;
+}
+
+.login-card h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.login-subtitle,
+.login-note {
+  color: #667085;
+}
+
+.login-card form {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.login-card input {
+  margin-bottom: 8px;
+}
+
+.login-note {
+  margin-top: 24px;
+  text-align: center;
+  font-size: .85rem;
+}
+
+@media (max-width: 900px) {
+  .summary-cards { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .transaction-form { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 18px 12px; }
+  .summary-cards { grid-template-columns: 1fr; }
+  .transaction-form { grid-template-columns: 1fr; }
+  .nav-user span { display: none; }
+  .panel { padding: 14px; }
+  .panel-heading { align-items: flex-start; flex-direction: column; }
+  .filters { width: 100%; flex-direction: column; }
+  .side-menu { width: min(280px, 85vw); }
+  .page-heading h1 { font-size: 1.6rem; }
+}
