@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str
+    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/wina_bwangu"
     tax_rate: float = 0.16
     admin_username: str = "admin"
     admin_password: str = "wina123"
