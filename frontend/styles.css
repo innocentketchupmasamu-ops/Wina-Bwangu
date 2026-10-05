@@ -1,0 +1,401 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    margin: 0;
+}
+
+body {
+    background-color: #360f71;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar {
+    display: flex;
+    background-color: #221c2f;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+
+
+.logo {
+    align-content: center;
+    color: rgb(64, 128, 224);
+    margin-right: auto;
+    cursor: default;
+    padding: 0.6rem;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.menu-button svg {
+    color: #cbcbcb;
+    height: 25px;
+}
+
+.menu-button:hover {
+    background-color: #1e1828;
+}
+
+.menu-button.active {
+    background-color: #1e1828;
+}
+
+.side-menu {
+    position: fixed;
+    left: 0;
+    width: 300px;
+    height: 100dvh;
+    background-color: #251c46;
+    transform: translatex(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    padding-bottom: 50px;
+}
+
+
+.side-menu.open {
+    transform: translatex(0);
+}
+
+
+
+.menu-item {
+    color: #cbcbcb;
+    padding: 0.8rem 1.2rem;
+    cursor: default;
+    border: none;
+    display: flex;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.menu-item:hover {
+    background-color: #1e1828;
+}
+
+.menu-item.active {
+    background-color: #1e1828;
+}
+
+.menu-item.highlight {
+    background-color: #1e1828;
+}
+
+.menu-item svg {
+    margin-left: 135px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-item.highlight svg {
+    transform: rotate(90deg);
+}
+
+.dropdown-menu {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #6c6591;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin-left: 18px;
+    transition: max-height 0.3s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.dropdown-menu.show {
+    max-height: 200dvh;
+    opacity: 1;
+}
+
+.location {
+    display: inline-block;
+    margin-left: 20px;
+    color: #cbcbcb;
+    width: 110px;
+
+}
+
+.nested-button {
+    padding: 10px 20px;
+    display: block;
+    cursor: default;
+    background-color: rgb(63, 55, 91);
+    color: rgb(108, 156, 227);
+}
+
+.booth {
+    display: inline-block;
+}
+
+.nested-button svg {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nested-button.open svg {
+    transform: rotate(90deg);
+}
+
+.nested-button:hover {
+    background-color: rgb(49, 43, 72);
+}
+
+.nested-menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.4s ease-in-out;
+    cursor: default;
+}
+
+.nested-menu.show {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.nested-menu li {
+    padding: 5px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.nested-menu li:hover {
+    text-decoration: underline;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    z-index: 12;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: rgb(63, 55, 91);
+    color: #cbcbcb;
+    padding: 24px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.toast-container {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.toast {
+    background-color: #221c2f;
+    height: 30px;
+    width: 280px;
+    text-align: center;
+    color: #cbcbcb;
+    align-content: center;
+}
+
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "b1 b4"
+        "b3 b2";
+    place-items: center;
+    place-content: center;
+    column-gap: 40px;
+    row-gap: 26px;
+    margin: 1rem;
+    min-height: 80dvh;
+}
+
+@media(max-width: 46rem) {
+    .container {
+        grid-template-areas:
+            "b4"
+            "b2"
+            "b1"
+            "b3";
+    }
+}
+
+.display {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: grid;
+    place-content: center;
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    padding: 18px 20px;
+}
+
+.frequency td {
+    width: auto;
+    padding-right: 10px;
+}
+
+.services {
+    margin-top: 25px;
+    align-self: flex-end;
+}
+
+.pie-chart-container {
+    color: #cbcbcb;
+    display: grid;
+
+}
+
+.pie-chart {
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    justify-self: center;
+    margin: 5px;
+}
+
+
+
+.legend-item {
+    display: grid;
+    grid-template-areas:
+        "l1 l2"
+        "l3 l4";
+    align-items: center;
+}
+
+.legend-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.transactions {
+    display: grid;
+    grid-template-areas:
+        "t1"
+        "t2";
+    place-items: center;
+    place-content: center;
+    margin: 2rem;
+    row-gap: 2rem;
+
+}
+
+
+.tax-performance {
+    width: 300px;
+}
+
+
+
+.tax-bar {
+    background-color: #8279ad;
+    border-radius: 0px 4px 4px 0px;
+    height: 100%;
+    transition: width 0.4s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 8px;
+    min-width: 105px;
+}
+
+.table-5 {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: auto;
+    width: auto;
+    padding-top: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.page-indicator {
+    color: #555;
+    align-content: center;
+
+}
+
+
+
+table {
+    border: 1px outset black;
+    border-collapse: separate;
+    border-spacing: 2px;
+    cursor: default;
+}
+
+th,
+td {
+    border: 1px inset black;
+    padding: 1px;
+    width: 150px;
+}

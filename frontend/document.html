@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Assignment</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="menu-button" id="menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
+                fill="currentColor"><!--!Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                    d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" />
+            </svg>
+
+        </div>
+
+        <div class="logo">Wina Bwangu</div>
+    </nav>
+
+    <div class="side-menu" id="side-menu">
+
+        <a href="index.html" class="menu-item">Dashboard</a>
+
+        <div class="dropdown">
+            <span class="menu-item" id="dropdown-button">Mobile Booths
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.0719 8.02397L5.7146 3.66666L6.33332 3.04794L11 7.71461V8.33333L6.33332 13L5.7146 12.3813L10.0719 8.02397Z"
+                        fill="#C5C5C5" />
+                </svg>
+            </span>
+
+            <div class="dropdown-menu" id="dropdown-menu">
+
+                <span class="nested-button">
+                    <p class="booth">Wina 1</p>
+                    <p class="location">Lusaka CPD</p>
+                </span>
+                <ul class="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
+                    <li class="service" service-id="zanaco">Zanaco</li>
+                    <li class="service" service-id="fnb">FNB</li>
+                </ul>
+
+
+                <span class="nested-button">
+                    <p class="booth">Wina 2</p>
+                    <p class="location">Libala</p>
+                </span>
+                <ul class="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
+                    <li class="service" service-id="fnb">FNB</li>
+                </ul>
+
+                <span class="nested-button">
+                    <p class="booth">Wina 3</p>
+                    <p class="location">Kabwata</p>
+                </span>
+                <ul class="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
+                    <li class="service" service-id="zanaco">Zanaco</li>
+                    <li class="service" service-id="fnb">FNB</li>
+                </ul>
+
+                <span class="nested-button">
+                    <p class="booth">Wina 4</p>
+                    <p class="location">Mandevu</p>
+                </span>
+                <ul class="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
+
+                </ul>
+
+                <span class="nested-button">
+                    <p class="booth">Wina 5</p>
+                    <p class="location">Woodlands</p>
+                </span>
+                <ul class="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zanaco">Zanaco</li>
+                    <li class="service" service-id="fnb">FNB</li>
+                </ul>
+
+                <span class="nested-button">
+                    <p class="booth">Wina 6</p>
+                    <p class="location">Matero East</p>
+                </span>
+                <ul class="nested-menu" id="nested-menu">
+                    <li class="service" service-id="airtel-money">Airtel Money</li>
+                    <li class="service" service-id="mtn-money">MTN Money</li>
+                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="transactions.html" class="menu-item ">Transactions</a>
+
+        <a href="document.html" class="menu-item active">Documentation</a>
+
+    </div>
+
+    <!--modal to show revenue per kwacha-->
+    <div class="modal-overlay" id="service-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+
+            <h3 id="modal-service-name"></h3>
+
+            <div class="modal-body">
+                <p class="modal-revenue" id="modal-revenue"></p>
+                <p id="modal-description"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="display documentation">
+
+            <p>1000 word report can go here...</p>
+        </div>
+
+
+
+        <script src="script.js"></script>
+</body>
+
+</html>
