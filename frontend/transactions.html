@@ -1,203 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Assignment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wina Bwangu - Transactions</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="menu-button" id="menu-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                fill="currentColor"><!--!Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                <path
-                    d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" />
-            </svg>
-
-        </div>
-
-        <div class="logo">Wina Bwangu</div>
-    </nav>
-
-    <div class="side-menu" id="side-menu">
-
-        <a href="index.html" class="menu-item">Dashboard</a>
-
-        <div class="dropdown">
-            <span class="menu-item" id="dropdown-button">Mobile Booths
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M10.0719 8.02397L5.7146 3.66666L6.33332 3.04794L11 7.71461V8.33333L6.33332 13L5.7146 12.3813L10.0719 8.02397Z"
-                        fill="#C5C5C5" />
-                </svg>
-            </span>
-
-            <div class="dropdown-menu" id="dropdown-menu">
-
-                <span class="nested-button">
-                    <p class="booth">Wina 1</p>
-                    <p class="location">Lusaka CPD</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-
-                <span class="nested-button">
-                    <p class="booth">Wina 2</p>
-                    <p class="location">Libala</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 3</p>
-                    <p class="location">Kabwata</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 4</p>
-                    <p class="location">Mandevu</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 5</p>
-                    <p class="location">Woodlands</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 6</p>
-                    <p class="location">Matero East</p>
-                </span>
-                <ul class="nested-menu" id="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                </ul>
-            </div>
-        </div>
-
-        <a href="transactions.html" class="menu-item active">Transactions</a>
-
-        <a href="document.html" class="menu-item">Documentation</a>
-
+  <nav class="navbar">
+    <button class="menu-button" id="menu-button" aria-label="Open menu">☰</button>
+    <div class="logo">Wina Bwangu</div>
+    <div class="nav-user">
+      <span id="current-user"></span>
+      <button class="logout-button" id="logout-button">Log out</button>
     </div>
+  </nav>
 
-    <!--modal to show revenue per kwacha-->
-    <div class="modal-overlay" id="service-modal">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
+  <aside class="side-menu" id="side-menu">
+    <a href="index.html" class="menu-item">Dashboard</a>
+    <a href="transactions.html" class="menu-item active">Transactions</a>
+    <a href="document.html" class="menu-item">Documentation</a>
+  </aside>
 
-            <h3 id="modal-service-name"></h3>
+  <main class="page">
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Transaction management</p>
+        <h1>Transactions</h1>
+        <p>Record a new transaction or review the stored transaction history.</p>
+      </div>
+    </section>
 
-            <div class="modal-body">
-                <p class="modal-revenue" id="modal-revenue"></p>
-                <p id="modal-description"></p>
-            </div>
-
+    <section class="panel transaction-form-panel">
+      <div class="panel-heading"><h2>Record transaction</h2></div>
+      <form id="transaction-form" class="transaction-form">
+        <div>
+          <label for="booth-select">Mobile booth</label>
+          <select id="booth-select" required><option value="">Select booth</option></select>
         </div>
-    </div>
-
-    <!--Toast message container-->
-    <div class="toast-container">
-        <div class="toast" id="toast"></div>
-    </div>
-
-
-    <div class="transactions">
-        <div class="display" style="grid-area: t1;">
-            <table id="tax-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th class="tax-performance">Tax Obligation Performance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr service-id="airtel-money">
-                        <td>Airtel Money</td>
-                        <td class="cell-total"></td>
-
-                    </tr>
-                    <tr service-id="mtn-money">
-                        <td>MTN Money</td>
-                        <td class="cell-total"></td>
-
-                    </tr>
-                    <tr service-id="zamtel-money">
-                        <td>Zamtel Money</td>
-                        <td class="cell-total"></td>
-
-                    </tr>
-                    <tr service-id="zanaco">
-                        <td>Zanaco</td>
-                        <td class="cell-total"></td>
-
-                    </tr>
-                    <tr service-id="fnb">
-                        <td>FNB</td>
-                        <td class="cell-total"></td>
-
-                    </tr>
-                </tbody>
-            </table>
+        <div>
+          <label for="service-select">Service</label>
+          <select id="service-select" required disabled><option value="">Select booth first</option></select>
         </div>
-
-
-        <div class="table-5" style="grid-area: t2;">
-            <table id="transactions-table">
-                <thead>
-                    <tr>
-                        <th>TransactionID</th>
-                        <th>Mobile Booth</th>
-                        <th>Location</th>
-                        <th>Service</th>
-                        <th>Reveue per Kwacha</th>
-                        <th>Transaction Amount</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-
-            </table>
-
-            <div id="pagination-controls" class="pagination-container"></div>
-
+        <div>
+          <label for="amount">Transaction amount (K)</label>
+          <input id="amount" type="number" min="0.01" step="0.01" required>
         </div>
-    </div>
+        <div class="transaction-preview">
+          <span>Revenue rate</span><strong id="revenue-rate">—</strong>
+          <span>Estimated revenue</span><strong id="estimated-revenue">—</strong>
+        </div>
+        <button class="primary-button" type="submit">Save transaction</button>
+        <p id="transaction-message" class="form-message"></p>
+      </form>
+    </section>
 
+    <section class="panel">
+      <div class="panel-heading">
+        <h2>Transaction history</h2>
+        <div class="filters">
+          <select id="filter-booth"><option value="">All booths</option></select>
+          <select id="filter-service"><option value="">All services</option></select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Transaction ID</th><th>Booth</th><th>Location</th><th>Service</th><th>Rate</th><th>Amount</th><th>Revenue</th><th>Date</th></tr>
+          </thead>
+          <tbody id="transactions-body"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="previous-button">Previous</button>
+        <span id="page-indicator">Page 1</span>
+        <button id="next-button">Next</button>
+      </div>
+    </section>
+  </main>
 
+  <div class="toast" id="toast"></div>
 
-    <script src="script.js"></script>
+  <script src="api.js"></script>
+  <script src="transactions.js"></script>
 </body>
-
 </html>
