@@ -1,143 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Assignment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wina Bwangu - Documentation</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="menu-button" id="menu-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
-                fill="currentColor"><!--!Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                <path
-                    d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" />
-            </svg>
-
-        </div>
-
-        <div class="logo">Wina Bwangu</div>
-    </nav>
-
-    <div class="side-menu" id="side-menu">
-
-        <a href="index.html" class="menu-item">Dashboard</a>
-
-        <div class="dropdown">
-            <span class="menu-item" id="dropdown-button">Mobile Booths
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M10.0719 8.02397L5.7146 3.66666L6.33332 3.04794L11 7.71461V8.33333L6.33332 13L5.7146 12.3813L10.0719 8.02397Z"
-                        fill="#C5C5C5" />
-                </svg>
-            </span>
-
-            <div class="dropdown-menu" id="dropdown-menu">
-
-                <span class="nested-button">
-                    <p class="booth">Wina 1</p>
-                    <p class="location">Lusaka CPD</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-
-                <span class="nested-button">
-                    <p class="booth">Wina 2</p>
-                    <p class="location">Libala</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 3</p>
-                    <p class="location">Kabwata</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 4</p>
-                    <p class="location">Mandevu</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 5</p>
-                    <p class="location">Woodlands</p>
-                </span>
-                <ul class="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zanaco">Zanaco</li>
-                    <li class="service" service-id="fnb">FNB</li>
-                </ul>
-
-                <span class="nested-button">
-                    <p class="booth">Wina 6</p>
-                    <p class="location">Matero East</p>
-                </span>
-                <ul class="nested-menu" id="nested-menu">
-                    <li class="service" service-id="airtel-money">Airtel Money</li>
-                    <li class="service" service-id="mtn-money">MTN Money</li>
-                    <li class="service" service-id="zamtel-money">Zamtel Money</li>
-                </ul>
-            </div>
-        </div>
-
-        <a href="transactions.html" class="menu-item ">Transactions</a>
-
-        <a href="document.html" class="menu-item active">Documentation</a>
-
-    </div>
-
-    <!--modal to show revenue per kwacha-->
-    <div class="modal-overlay" id="service-modal">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
-
-            <h3 id="modal-service-name"></h3>
-
-            <div class="modal-body">
-                <p class="modal-revenue" id="modal-revenue"></p>
-                <p id="modal-description"></p>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="display documentation">
-
-            <p>1000 word report can go here...</p>
-        </div>
-
-
-
-        <script src="script.js"></script>
+  <nav class="navbar">
+    <button class="menu-button" id="menu-button">☰</button>
+    <div class="logo">Wina Bwangu</div>
+    <div class="nav-user"><span id="current-user"></span><button class="logout-button" id="logout-button">Log out</button></div>
+  </nav>
+  <aside class="side-menu" id="side-menu">
+    <a href="index.html" class="menu-item">Dashboard</a>
+    <a href="transactions.html" class="menu-item">Transactions</a>
+    <a href="document.html" class="menu-item active">Documentation</a>
+  </aside>
+  <main class="page">
+    <section class="page-heading">
+      <p class="eyebrow">Project documentation</p>
+      <h1>Wina Bwangu</h1>
+      <p>Fintech transaction and performance management prototype.</p>
+    </section>
+    <section class="panel">
+      <h2>System overview</h2>
+      <p style="margin-top:12px;line-height:1.7">
+        The application records transactions performed through Wina Bwangu mobile booths,
+        validates service availability and monthly service limits, calculates revenue and
+        tax values, and presents cumulative performance through a responsive dashboard.
+      </p>
+      <h2 style="margin-top:24px">Technology</h2>
+      <p style="margin-top:12px;line-height:1.7">
+        Frontend: HTML5, CSS3 and JavaScript. Backend: Python, FastAPI, Pydantic and SQLAlchemy.
+        Database: PostgreSQL. API testing can be performed through the automatically generated
+        FastAPI documentation at <strong>/docs</strong>.
+      </p>
+      <h2 style="margin-top:24px">Important controls</h2>
+      <ul style="margin-top:12px;line-height:1.8">
+        <li>Only services assigned to the selected booth can be recorded.</li>
+        <li>Transaction amounts must be positive.</li>
+        <li>A transaction cannot exceed the remaining monthly service limit.</li>
+        <li>Revenue is calculated from the configured service rate.</li>
+        <li>Tax is calculated using the configurable application tax rate.</li>
+        <li>Dashboard figures are calculated from stored transaction data.</li>
+      </ul>
+    </section>
+  </main>
+  <script src="api.js"></script>
+  <script>
+    requireLogin();
+    document.getElementById("current-user").textContent = localStorage.getItem("winaBwanguUser") || "Administrator";
+    document.getElementById("logout-button").addEventListener("click", logout);
+    document.getElementById("menu-button").addEventListener("click", () => document.getElementById("side-menu").classList.toggle("open"));
+  </script>
 </body>
-
 </html>
