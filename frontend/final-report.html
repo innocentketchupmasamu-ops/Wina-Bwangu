@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wina Bwangu - Final Project Report</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .report-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .report-actions a, .report-actions button { display:inline-block; border:0; border-radius:8px; padding:10px 16px; text-decoration:none; cursor:pointer; font-weight:700; }
+    .report-actions .primary { background:#360f71; color:#fff; }
+    .report-actions .secondary { background:#eeeaf7; color:#360f71; }
+    .report-content { max-width:900px; margin:0 auto; }
+    .report-content h2 { font-size:1.25rem; margin:26px 0 10px; }
+    .report-content p { line-height:1.75; margin:10px 0; }
+    .report-content ul { line-height:1.75; padding-left:24px; }
+    .report-cover { border-bottom:1px solid #e6e8ef; padding-bottom:20px; margin-bottom:20px; }
+    .report-meta { color:#667085; line-height:1.8; margin-top:14px; }
+    @media print { .navbar, .side-menu, .report-actions, .no-print { display:none !important; } body { background:#fff !important; color:#111 !important; } .page { max-width:none; padding:0; } .panel { box-shadow:none; border:0; padding:0; } .report-content { max-width:none; } a { color:#111; text-decoration:none; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="menu-button" id="menu-button" aria-label="Open menu">☰</button>
+    <div class="logo">Wina Bwangu</div>
+    <div class="nav-user"><span id="current-user"></span><button class="logout-button" id="logout-button">Log out</button></div>
+  </nav>
+  <aside class="side-menu" id="side-menu">
+    <a href="index.html" class="menu-item">Dashboard</a>
+    <a href="transactions.html" class="menu-item">Transactions</a>
+    <a href="document.html" class="menu-item active">Documents</a>
+  </aside>
+  <main class="page">
+    <section class="page-heading no-print">
+      <p class="eyebrow">Documents / Final report</p>
+      <h1>Wina Bwangu Final Project Report</h1>
+      <p>Final project report for the Web Application Development assignment.</p>
+      <div class="report-actions">
+        <button class="primary" onclick="window.print()">Print / Save as PDF</button>
+        <a class="secondary" href="document.html">Back to Documents</a>
+      </div>
+    </section>
+    <section class="panel report-content">
+      <div class="report-cover">
+        <p class="eyebrow">Web Application Development</p>
+        <h1>Wina Bwangu Web Application</h1>
+        <h2 style="margin-top:8px">Final Project Report</h2>
+        <div class="report-meta">
+          <div><strong>Course:</strong> Web Application Development</div>
+          <div><strong>Project:</strong> Wina Bwangu Management System</div>
+          <div><strong>Student Name(s):</strong> __________________________</div>
+          <div><strong>Student Number(s):</strong> ________________________</div>
+          <div><strong>Submission Date:</strong> ___________________________</div>
+        </div>
+      </div>
+      <h2>1. Introduction</h2>
+      <p>Wina Bwangu operates mobile money and banking service booths across Lusaka District. Managing transactions, monitoring service limits, calculating revenue, and tracking financial performance manually can make it difficult to obtain accurate and timely business information. This project develops a web-based management system to support transaction recording, data management, and business performance monitoring.</p>
+      <p>The work covers requirements analysis and design, a client-side prototype, and a server-side application connected to PostgreSQL. The interface records transactions and presents business information through tables, performance indicators, and charts.</p>
+      <h2>2. Development Tools and Technologies</h2>
+      <p><strong>HTML5, CSS3 and JavaScript</strong> create the client interface. HTML structures the pages, CSS controls layout and appearance, and JavaScript enables interaction, validation, data retrieval, and communication with the backend.</p>
+      <p><strong>Python and FastAPI</strong> implement the server-side application. FastAPI exposes endpoints for retrieving information and submitting transactions. Server-side validation applies business rules before data is stored. <strong>Pydantic</strong> supports request validation and <strong>SQLAlchemy</strong> connects the application to the database.</p>
+      <p><strong>PostgreSQL</strong> stores booths, services, their relationships, and transactions. Primary keys, foreign keys, and constraints help maintain data integrity. <strong>Visual Studio Code</strong> was used as the development environment and <strong>pgAdmin</strong> to inspect tables and run SQL queries. The browser communicates with FastAPI, which accesses PostgreSQL and returns results to the frontend.</p>
+      <h2>3. System Design and Implementation</h2>
+      <p>The system is organised around booths, services, and transactions. A booth-to-service relationship represents the fact that different booths offer different combinations of services.</p>
+      <p>The frontend provides navigation, transaction recording, transaction history, and a dashboard. Selecting a booth can display its location and restrict the available services to those assigned to that booth. Selecting a service displays its applicable revenue rate.</p>
+      <p>The backend validates submitted details, calculates financial values, and stores valid transactions. Transaction identifiers use the WB format. Dashboard information is retrieved from transaction data rather than fixed figures embedded in the webpage.</p>
+      <p>The supplied Appendix 1 dataset contains 308 records, numbered WB0000001 through WB0000308. These records provide the basis for the performance analysis.</p>
+      <h2>4. Results and Implications of System Outputs</h2>
+      <p>Analysis of the supplied dataset produced a total transaction amount of <strong>K650,733</strong> and total revenue of <strong>K32,033.695</strong>. The combined monthly service limits amount to K740,000.</p>
+      <p>The difference between the combined limits and transaction amounts is K89,267 of unused capacity across the five services. This total does not mean that each individual service has substantial remaining capacity.</p>
+      <p>Airtel Money recorded K317,627 against a K350,000 limit, leaving K32,373. MTN Money recorded K138,182 against K160,000, leaving K21,818. Zamtel Money recorded K64,334 against K70,000, leaving K5,666. Zanaco recorded K51,441 against K80,000, leaving K28,559. FNB recorded K79,149 against K80,000, leaving only K851.</p>
+      <p>FNB is operating at approximately 98.94% of its monthly limit and therefore requires close monitoring. If its remaining capacity is exhausted, further transactions should be handled according to authorised company procedures.</p>
+      <p>Booth revenue and service-frequency tables can help management identify where revenue is generated and which services are used most often. This information can inform resource allocation, service planning, and monitoring of busy booths.</p>
+      <p>Tax indicators can help estimate potential obligations, but the applicable tax rate and calculation method must be confirmed. A 16% rate, where configured in the application, is an application assumption and is not specified as a rate in the case study.</p>
+      <h2>5. Testing and Evaluation</h2>
+      <p>Database queries were used to verify the supplied transaction count, total transaction amount, and total revenue. Backend testing also included checking database connectivity and transaction creation. All results reported for assessment should correspond to tests actually performed.</p>
+      <p>Functional tests should cover booth selection, location display, service availability, revenue-rate selection, and calculations. For example, a K1,000 Airtel Money transaction at a rate of 0.05 should generate K50 in revenue.</p>
+      <p>Validation tests should confirm that negative amounts, invalid booth or service identifiers, unavailable booth-service combinations, and transactions exceeding a service's remaining limit are rejected appropriately. Integration tests should confirm that transactions submitted through the frontend are saved in PostgreSQL and reflected in dashboard responses.</p>
+      <p>Regression tests should repeat previously successful tests after changes, particularly changes to transaction calculations, authentication, or database queries. Responsive tests should check usability on desktop and mobile-sized screens.</p>
+      <h2>6. Recommended Operational Controls</h2>
+      <p>Input validation should operate on both the frontend and backend, with backend validation remaining authoritative. Database constraints should prevent invalid relationships and duplicate transaction identifiers.</p>
+      <p>Authentication and role-based authorisation should restrict sensitive functions to approved personnel. Passwords should be securely hashed, and credentials should never be committed to the source repository.</p>
+      <p>Regular database backups should be made and restoration procedures tested. Transaction changes should be traceable, access to financial information should be limited, and alerts should notify management when a service approaches its monthly limit.</p>
+      <p>Financial calculations, including tax treatment and rounding, should be documented and reviewed against applicable business and regulatory requirements. Historical data should be preserved and corrections should be traceable.</p>
+      <h2>7. Conclusion</h2>
+      <p>The Wina Bwangu project demonstrates how a responsive web interface, a Python backend, and a relational database can support transaction management and business reporting. The dashboard converts transaction records into information that can help management monitor revenue, service utilisation, and remaining capacity.</p>
+      <p>Further production deployment would require comprehensive testing, verified tax rules, secure user management, reliable backups, and appropriate access controls.</p>
+    </section>
+  </main>
+  <script src="api.js"></script>
+  <script>
+    requireLogin();
+    document.getElementById("current-user").textContent = localStorage.getItem("winaBwanguUser") || "Administrator";
+    document.getElementById("logout-button").addEventListener("click", logout);
+    document.getElementById("menu-button").addEventListener("click", () => document.getElementById("side-menu").classList.toggle("open"));
+  </script>
+</body>
+</html>
