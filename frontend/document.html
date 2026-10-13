@@ -3,39 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wina Bwangu - Documentation</title>
+  <title>Wina Bwangu - Documents</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .document-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+    .document-card { border:1px solid #e6e8ef; border-radius:12px; padding:20px; background:#fff; }
+    .document-card h2 { font-size:1.15rem; margin-bottom:9px; }
+    .document-card p { color:#667085; line-height:1.65; margin-bottom:16px; }
+    .document-link { display:inline-block; padding:10px 14px; border-radius:8px; background:#360f71; color:#fff; text-decoration:none; font-weight:700; }
+  </style>
 </head>
 <body>
   <nav class="navbar">
-    <button class="menu-button" id="menu-button">☰</button>
+    <button class="menu-button" id="menu-button" aria-label="Open menu">☰</button>
     <div class="logo">Wina Bwangu</div>
     <div class="nav-user"><span id="current-user"></span><button class="logout-button" id="logout-button">Log out</button></div>
   </nav>
   <aside class="side-menu" id="side-menu">
     <a href="index.html" class="menu-item">Dashboard</a>
     <a href="transactions.html" class="menu-item">Transactions</a>
-    <a href="document.html" class="menu-item active">Documentation</a>
+    <a href="document.html" class="menu-item active">Documents</a>
   </aside>
   <main class="page">
     <section class="page-heading">
       <p class="eyebrow">Project documentation</p>
-      <h1>Wina Bwangu</h1>
-      <p>Fintech transaction and performance management prototype.</p>
+      <h1>Documents</h1>
+      <p>Project information and supporting documentation for the Wina Bwangu management system.</p>
     </section>
-    <section class="panel">
+    <section class="document-list">
+      <article class="document-card">
+        <h2>System Overview</h2>
+        <p>Summary of the system purpose, technologies used, and important business controls.</p>
+        <a class="document-link" href="#system-overview">View overview</a>
+      </article>
+      <article class="document-card">
+        <h2>Final Project Report</h2>
+        <p>Assignment report covering the development tools, system design, implementation, output implications, testing, and recommended operational controls.</p>
+        <a class="document-link" href="final-report.html">Open final report</a>
+      </article>
+    </section>
+    <section class="panel" id="system-overview" style="margin-top:20px">
       <h2>System overview</h2>
-      <p style="margin-top:12px;line-height:1.7">
-        The application records transactions performed through Wina Bwangu mobile booths,
-        validates service availability and monthly service limits, calculates revenue and
-        tax values, and presents cumulative performance through a responsive dashboard.
-      </p>
+      <p style="margin-top:12px;line-height:1.7">The application records transactions performed through Wina Bwangu mobile booths, validates service availability and monthly service limits, calculates revenue and tax values, and presents cumulative performance through a responsive dashboard.</p>
       <h2 style="margin-top:24px">Technology</h2>
-      <p style="margin-top:12px;line-height:1.7">
-        Frontend: HTML5, CSS3 and JavaScript. Backend: Python, FastAPI, Pydantic and SQLAlchemy.
-        Database: PostgreSQL. API testing can be performed through the automatically generated
-        FastAPI documentation at <strong>/docs</strong>.
-      </p>
+      <p style="margin-top:12px;line-height:1.7">Frontend: HTML5, CSS3 and JavaScript. Backend: Python, FastAPI, Pydantic and SQLAlchemy. Database: PostgreSQL. API testing can be performed through the automatically generated FastAPI documentation at <strong>/docs</strong>.</p>
       <h2 style="margin-top:24px">Important controls</h2>
       <ul style="margin-top:12px;line-height:1.8">
         <li>Only services assigned to the selected booth can be recorded.</li>
