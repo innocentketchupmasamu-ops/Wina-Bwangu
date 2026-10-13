@@ -62,6 +62,7 @@ async function loadDashboard() {
     `).join("");
 
     drawChart(Number(revenueCapital.total_revenue), Number(revenueCapital.total_capital));
+    renderAnalytics(booths, services, frequency, Number(summary.total_transactions), Number(summary.total_revenue));
   } catch (error) {
     const message = document.getElementById("dashboard-message");
     message.textContent = error.message;
@@ -107,3 +108,46 @@ function drawChart(revenue, capital) {
 }
 
 loadDashboard();
+
+
+function renderAnalytics(booths, services, frequency, totalTransactions, totalRevenue) {
+  const boothHost = document.getElementById("booth-revenue-chart");
+  const serviceHost = document.getElementById("service-analytics");
+  const insightsHost = document.getElementById("analytics-insights");
+
+  const sortedBooths = [...booths].sort((a, b) => Number(b.total_revenue) - Number(a.total_revenue));
+  const highestBoothRevenue = Math.max(...sortedBooths.map(item => Number(item.total_revenue) || 0), 1);
+  boothHost.innerHTML = sortedBooths.length ? sortedBooths.map(item => {
+    const value = Number(item.total_revenue) || 0;
+    const width = Math.max(value > 0 ? 3 : 0, value / highestBoothRevenue * 100);
+    return `<div class="analytics-bar-row">
+      <div class="analytics-bar-label"><span>${escapeHtml(item.booth_name)}</span><strong>${money(value)}</strong></div>
+      <div class="analytics-track"><span style="width:${width.toFixed(1)}%"></span></div>
+      <small>${Number(item.transaction_count || 0).toLocaleString()} transactions</small>
+    </div>`;
+  }).join("") : '<p class="analytics-empty">No booth transaction data is available yet.</p>';
+
+  const sortedServices = [...services].sort((a, b) => Number(b.utilisation_percent) - Number(a.utilisation_percent));
+  serviceHost.innerHTML = sortedServices.length ? sortedServices.map(item => {
+    const pct = Math.max(0, Math.min(Number(item.utilisation_percent) || 0, 100));
+    return `<div class="service-analytics-row">
+      <div class="analytics-bar-label"><span>${escapeHtml(item.service_name)}</span><strong>${pct.toFixed(1)}%</strong></div>
+      <div class="analytics-track service-track"><span style="width:${pct}%"></span></div>
+      <small>${money(item.used)} used of ${money(item.monthly_limit)}</small>
+    </div>`;
+  }).join("") : '<p class="analytics-empty">No service data is available yet.</p>';
+
+  const topBooth = sortedBooths[0];
+  const topService = [...frequency].sort((a, b) => Number(b.count) - Number(a.count))[0];
+  const average = totalTransactions > 0 ? totalRevenue / totalTransactions : 0;
+  insightsHost.innerHTML = `
+    <article class="insight-card"><span>Top-performing booth</span><strong>${topBooth ? escapeHtml(topBooth.booth_name) : "No data"}</strong><small>${topBooth ? money(topBooth.total_revenue) + " revenue" : "Add transactions to see results"}</small></article>
+    <article class="insight-card"><span>Most-used service</span><strong>${topService ? escapeHtml(topService.service_name) : "No data"}</strong><small>${topService ? Number(topService.count).toLocaleString() + " recorded transactions" : "Add transactions to see results"}</small></article>
+    <article class="insight-card"><span>Average revenue / transaction</span><strong>${money(average)}</strong><small>Revenue divided by transaction count</small></article>`;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[character]);
+}
