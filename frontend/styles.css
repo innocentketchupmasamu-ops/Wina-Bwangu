@@ -790,3 +790,54 @@ body {
   .side-menu { width: min(280px, 85vw); }
   .page-heading h1 { font-size: 1.6rem; }
 }
+
+
+/* Transaction analytics */
+.analytics-section { margin: 28px 0; }
+.analytics-heading { display:flex; justify-content:space-between; align-items:end; gap:14px; margin-bottom:14px; }
+.analytics-heading h2 { font-size:1.45rem; margin-top:4px; }
+.analytics-live { display:flex; align-items:center; gap:7px; color:#667085; font-size:.82rem; }
+.analytics-live span { width:8px; height:8px; border-radius:50%; background:#12b76a; display:inline-block; }
+.analytics-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; }
+.analytics-panel { min-width:0; }
+.analytics-bars,.service-analytics { display:grid; gap:18px; margin-top:18px; }
+.analytics-bar-row,.service-analytics-row { min-width:0; }
+.analytics-bar-label { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:7px; }
+.analytics-bar-label span { color:#475467; overflow-wrap:anywhere; }
+.analytics-bar-label strong { white-space:nowrap; font-size:.92rem; }
+.analytics-track { width:100%; height:10px; background:#eceaf3; border-radius:20px; overflow:hidden; }
+.analytics-track > span { display:block; height:100%; min-width:0; background:linear-gradient(90deg,#6d45b5,#4080e0); border-radius:20px; transition:width .35s ease; }
+.service-track > span { background:linear-gradient(90deg,#12b76a,#84cc16); }
+.analytics-bar-row small,.service-analytics-row small { display:block; color:#667085; margin-top:6px; font-size:.78rem; }
+.analytics-empty { color:#667085; font-size:.9rem; }
+.insight-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:14px; }
+.insight-card { background:#fff; border:1px solid #e7e5ef; border-radius:12px; padding:17px 19px; min-width:0; }
+.insight-card > span { display:block; color:#667085; font-size:.82rem; margin-bottom:9px; }
+.insight-card > strong { display:block; color:#251c46; font-size:1.15rem; overflow-wrap:anywhere; }
+.insight-card > small { display:block; color:#667085; margin-top:7px; line-height:1.4; }
+
+/* Presentation-ready account creation */
+.login-card { position:relative; }
+.login-brand { display:flex; align-items:center; justify-content:space-between; text-decoration:none; }
+.brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:11px; background:#eee8fb; color:#360f71; font-size:.85rem; }
+.signup-kicker { color:#6d45b5; font-size:.72rem; letter-spacing:.16em; font-weight:800; margin-bottom:8px; }
+.signup-benefits { display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:15px; color:#475467; font-size:.78rem; }
+.signup-benefits span { font-size:.78rem; }
+.login-card form label { color:#344054; font-size:.88rem; font-weight:700; }
+.login-card input { font:inherit; outline:none; transition:border-color .15s,box-shadow .15s; }
+.login-card input:focus { border-color:#7f56d9; box-shadow:0 0 0 3px rgba(127,86,217,.13); }
+.password-field { position:relative; display:flex; align-items:center; }
+.password-field input { padding-right:62px; margin-bottom:0; }
+.password-toggle { position:absolute; right:8px; border:0; background:transparent; color:#6d45b5; font-size:.78rem; font-weight:700; cursor:pointer; padding:7px; }
+.field-hint { color:#667085; font-size:.75rem; line-height:1.4; }
+.field-hint.match { color:#027a48; }
+.field-hint.mismatch { color:#b42318; }
+.password-strength { height:4px; background:#eaecf0; border-radius:20px; overflow:hidden; margin-top:-2px; }
+.password-strength span { display:block; height:100%; width:0; background:#f04438; transition:width .2s,background .2s; }
+.password-strength span[data-strength="fair"] { background:#f79009; }
+.password-strength span[data-strength="good"] { background:#12b76a; }
+.password-strength span[data-strength="strong"] { background:#039855; }
+.signup-submit { display:flex; justify-content:space-between; align-items:center; margin-top:6px; min-height:46px; cursor:pointer; }
+.signup-submit:disabled { opacity:.7; cursor:wait; }
+.signup-footnote { text-align:center; color:#98a2b3; font-size:.72rem; margin-top:12px; }
+@media(max-width:700px) { .analytics-grid { grid-template-columns:1fr; } .insight-grid { grid-template-columns:1fr; } .analytics-heading { align-items:flex-start; flex-direction:column; } }
